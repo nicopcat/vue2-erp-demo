@@ -1,5 +1,5 @@
 # vue2-erp-demo
-
+试写一个基于Vue 2 + Element UI 的后台管理系统
 ## Project setup
 ```
 npm install
