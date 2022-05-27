@@ -1,12 +1,22 @@
-import Vue from 'vue'
-import App from './App.vue'
-import router from './router'
-import store from './store'
+import Vue from 'vue';
+import App from './App.vue';
+import router from './router';
+import store from './store';
+import axios from 'axios'
 
-Vue.config.productionTip = false
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+
+Vue.use(ElementUI);
+Vue.config.productionTip = false;
+// 把axios赋值给Vue原型对象的http
+Vue.prototype.$http = axios;
+// 写默认接口地址
+axios.default.baseURL = 'https://api.msdnxz.com?s='
+
 
 new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
+    router,
+    store,
+    render: h => h(App)
+}).$mount('#app');
