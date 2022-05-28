@@ -12,7 +12,7 @@ Vue.config.productionTip = false;
 // 把axios赋值给Vue原型对象的http
 Vue.prototype.$http = axios;
 // 写默认接口地址
-axios.default.baseURL = 'https://api.msdnxz.com?s='
+axios.default.baseURL = 'http://127.0.0.1'
 
 
 new Vue({

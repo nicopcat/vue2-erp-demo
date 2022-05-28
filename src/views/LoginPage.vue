@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="login_page">
     <h2>Vue-管理系统</h2>
     <el-form
       :model="ruleForm"
@@ -56,7 +56,7 @@ export default {
       let { name, password } = this.ruleForm;
       this.$http({
         methods: "post",
-        url: "Portal.Admin.Login",
+        url: "user_login",
         data: { username: name, password: password },
       })
         .then((res) => {
@@ -77,3 +77,25 @@ export default {
   },
 };
 </script>
+
+<style scoped>
+.login_page {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  margin: 6rem auto;
+  height: 40vh;
+  width: 520px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid royalblue;
+  border-radius: 8px;
+}
+.login_page h2 {
+  margin: 1rem;
+}
+
+form.el-form.demo-ruleForm > button {
+  margin: auto;
+}
+</style>
