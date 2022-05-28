@@ -15,7 +15,7 @@ const routes = [
   {
     path: '/home',
     name: 'home',
-    component: () => import('../views/home/HomeIndex.vue'),
+    component: () => import('../views/home/index.vue'),
     children: [
       {
         path: '/index',  // 首页

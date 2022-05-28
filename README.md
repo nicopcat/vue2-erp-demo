@@ -1,7 +1,20 @@
 # 项目介绍
 试写一个基于Vue 2 + Element UI 的后台管理系统
-# 一些笔记
+（中途看到被删 [这篇](https://godbasin.github.io/front-end-playground/vue/vue-for-everyone/vue-for-everyone-3.html#%E9%A1%B5%E9%9D%A2%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1)，比这该死的免费课讲得清楚得多……）
+demo: http://vue-for-everyone.godbasin.com/3/index.html
+# 页面划分
+## 页面结构设计
+|序号|	页面形式	|页面能力|
+|---|---|---|
+|1	|登录页|	只有用户名和密码的输入|
+|2	|待定|	待定|
+|3	|待定|	待定|
+|4	|待定|	待定|
 
+## 路由设计
+明天再整 ┑(￣Д ￣)┍
+
+# 一些笔记
 ## vue-cli相关
 
 1. vue-cli 的配置项文件: 根目录下自行创建 vue.config.js 文件  
@@ -9,7 +22,7 @@
 
 ## 路由
 
-1. $router → vue 实例对象； route → 路由的一系列信息  
+1. this.$router → 表示vue实例对象； this.route → 表示路由的一系列信息  
 2. 如何让面包屑通过路由动态变更内容呢？
 
 ## 组件
@@ -114,7 +127,7 @@ axios.default.baseURL = 'http://127.0.0.1:3333/'
 
 如果项目较大，需要将axios二次封装，单独建立文件，配置请求拦截器，响应拦截器
 
-1. ./  ../ @ 或直接引入
+3. './xxx'  '../xxx'  '@xxx' 或直接引入
     
     
     | 地址写法 | 查找位置 |
@@ -123,3 +136,17 @@ axios.default.baseURL = 'http://127.0.0.1:3333/'
     | ../ | 上级 |
     | @ | 根目录 |
     | 不写 | 直接从node_modules 引入 |
+
+4. Eslint 组件名称报错
+组件命名使用一个单词命名会报错：
+```
+eslint Component name “index” should always be multi-word
+```
+从@8版本起，新增的第一条规则就是`vue/multi-word-component-names
+Require component names to be always multi-word`，主要是为了防止组件名与 HTML 标签冲突。
+解决方法:
+1. 除了 App.vue 之外的组件以两个以上的词命名，如`BaseCard.vue`
+2. 禁用该 rule: 在.eslintrc.js 文件中的 `rule` 中加上规则:
+```
+'vue/multi-word-component-names': 0,
+```
