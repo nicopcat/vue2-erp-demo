@@ -3,6 +3,43 @@
 （中途看到被删 [这篇](https://godbasin.github.io/front-end-playground/vue/vue-for-everyone/vue-for-everyone-3.html#%E9%A1%B5%E9%9D%A2%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1)，比这该死的免费课讲得清楚得多……）
 demo: http://vue-for-everyone.godbasin.com/3/index.html
 # 页面划分
+设计好几页才能继续设计路由， 除了登录页，基本结构划分为左右+右侧的上下结构：
+```
+/home                   
++------------------+       
+| s |    Header    |       
+| i |              | 
+| d |     Main     | 
+| e |              |
+|   |              |  
+|   |              |    
+|   |--------------|    
++------------------+ 
+```
+## 左侧菜单
+大概包含 首页，信息管理，用户管理，
+
+数据组织如下：
+```
+item: [
+  { name: "首页", url: "/index" },
+  { name: "数据统计", url: "/stats" },
+  {
+    name: "信息管理",
+    url: "/wms",
+    child: [{ name: "列表展示", url: "wms/list" }],
+  },
+  {
+    name: "用户管理",
+    url: "/user",
+    child: [
+      { name: "用户统计", url: "/user/stats" },
+      { name: "角色统计", url: "/user/role" },
+    ],
+  },
+],
+```
+
 ## 页面结构设计
 |序号|	页面形式	|页面能力|
 |---|---|---|
@@ -28,6 +65,7 @@ demo: http://vue-for-everyone.godbasin.com/3/index.html
 ## 组件
 ### 侧边导航栏，多级展示的写法
 利用子组件递归循环遍历，动态加载
+
 
 ```jsx
 // AsideNav.vue
