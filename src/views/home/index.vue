@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     logout() {
-      sessionStorage.removeItem("username");
+      sessionStorage.removeItem("status");
       this.$router.push("/login");
     },
     handleOpen(key, keyPath) {

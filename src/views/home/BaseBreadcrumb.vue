@@ -1,16 +1,33 @@
 <template>
   <div class="breadcrumb">
     <el-breadcrumb separator-class="el-icon-arrow-right">
-      <el-breadcrumb-item :to="{ path: '/' }">首页</el-breadcrumb-item>
-      <el-breadcrumb-item>活动管理</el-breadcrumb-item>
-      <el-breadcrumb-item>活动列表</el-breadcrumb-item>
-      <el-breadcrumb-item>活动详情</el-breadcrumb-item>
+      <el-breadcrumb-item :to="r.path" v-for="(r, i) in list" :key="i">{{
+        r.meta.title
+      }}</el-breadcrumb-item>
     </el-breadcrumb>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      list: [],
+      tiltle: "",
+    };
+  },
+  created() {
+    console.log(this.$route.matched);
+    this.list = this.$route.matched;
+  },
+  watch: {
+    // 用watch监听路径历史
+    $route(to, from) {
+      console.log(from, to);
+      this.list = to.matched;
+    },
+  },
+};
 </script>
 
 <style scoped>

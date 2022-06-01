@@ -1,3 +1,11 @@
 <template>
-  <h1>Landing index</h1>
+  <div><TheCarousel /> <TheChart /></div>
 </template>
+<script>
+import TheCarousel from "./TheCarousel";
+import TheChart from "./TheChart";
+
+export default {
+  components: { TheCarousel, TheChart },
+};
+</script>

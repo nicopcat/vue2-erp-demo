@@ -1,7 +1,9 @@
 <template>
   <el-aside width="200px">
     <h5>导航</h5>
-    <el-menu default-active="2" router>
+    <!-- :default-active控制侧边栏菜单的激活状态 -->
+    <!-- 这里用$route.path 动态绑定 -->
+    <el-menu :default-active="$route.path" exact router>
       <nav-items
         v-for="v in item"
         :key="v.url"

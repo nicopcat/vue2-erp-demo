@@ -151,8 +151,7 @@ export default {
 </script>
 ```
 ## 其他
-1. 第三方插件：学习别人的封装思想
-2. axios二次封装
+### axios二次封装
 
 如果小项目不需要封装，直接使用:
 
@@ -165,17 +164,16 @@ axios.default.baseURL = 'http://127.0.0.1:3333/'
 
 如果项目较大，需要将axios二次封装，单独建立文件，配置请求拦截器，响应拦截器
 
-3. './xxx'  '../xxx'  '@xxx' 或直接引入
-    
-    
-    | 地址写法 | 查找位置 |
-    | --- | --- |
-    | ./ | 同级 |
-    | ../ | 上级 |
-    | @ | 根目录 |
-    | 不写 | 直接从node_modules 引入 |
+### Vue 中的引入地址写法
 
-4. Eslint 组件名称报错
+| 地址写法 | 查找位置 |
+| --- | --- |
+| ./ | 同级 |
+| ../ | 上级 |
+| @ | 根目录 |
+| 不写 | 直接从node_modules 引入 |
+
+### Eslint 组件名称报错
 组件命名使用一个单词命名会报错：
 ```
 eslint Component name “index” should always be multi-word
@@ -187,4 +185,36 @@ Require component names to be always multi-word`，主要是为了防止组件�
 2. 禁用该 rule: 在.eslintrc.js 文件中的 `rule` 中加上规则:
 ```
 'vue/multi-word-component-names': 0,
+```
+
+### vue + element ui 键盘事件不起作用
+若是使用了element-ui，需要要加上`native`限制符才能起用键盘事件，因为element-ui把input进行了封装，原事件不起作用。
+```js
+// 加上 native 修饰符
+@keyup.enter.native="login('ruleForm')"
+
+```
+### element ui表单valida问题
+```
+// 报错
+"TypeError: Cannot read properties of undefined (reading 'validate')"
+```
+这里是因为表单中的 `ref` 绑定的是`变量名`，而非字符串。
+```html
+ <el-form ref="ruleForm" >
+<!-- ... -->
+
+<el-button type="primary" @click="login('ruleForm')">登录</el-button>
+```
+
+```js
+doneSignup(ruleForm) {
+  this.$refs[ruleForm].validate((valid) => {
+    if (valid) {
+      // ... 
+    } else {
+      // ...
+    }
+  });
+}
 ```
