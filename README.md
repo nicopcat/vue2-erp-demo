@@ -1,7 +1,6 @@
 # 项目介绍
-试写一个基于Vue 2 + Element UI 的后台管理系统
-（中途看到被删 [这篇](https://godbasin.github.io/front-end-playground/vue/vue-for-everyone/vue-for-everyone-3.html#%E9%A1%B5%E9%9D%A2%E7%BB%93%E6%9E%84%E8%AE%BE%E8%AE%A1)，比这该死的免费课讲得清楚得多……）
-demo: http://vue-for-everyone.godbasin.com/3/index.html
+基于企鹅课堂XXX后台管理项目，试写一个基于Vue 2 + Element UI 的后台管理系统
+
 # 页面划分
 设计好几页才能继续设计路由， 除了登录页，基本结构划分为左右+右侧的上下结构：
 ```
