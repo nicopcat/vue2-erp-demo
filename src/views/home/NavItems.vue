@@ -12,6 +12,7 @@
         <i class="el-icon-folder-opened"></i>
         <span>{{ item.name }}</span>
       </template>
+      <!-- 递归循环子组件本身  -->
       <nav-items
         v-for="c in item.child"
         :key="c.url"

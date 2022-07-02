@@ -4,6 +4,7 @@
     <!-- :default-active控制侧边栏菜单的激活状态 -->
     <!-- 这里用$route.path 动态绑定 -->
     <el-menu :default-active="$route.path" exact router>
+      <!-- item 和 path 使用v-bind绑定在属性上 传递给子组件  -->
       <nav-items
         v-for="v in item"
         :key="v.url"
